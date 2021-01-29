@@ -63,3 +63,22 @@ Then edit the Angular.json file server section under projects > architect > serv
     }
 
 Other front end cli may have similar options to set the SSL certificate.
+
+Helpful links
+
+[https://stackoverflow.com/questions/14953132/iis-7-error-a-specified-logon-session-does-not-exist-it-may-already-have-been](https://stackoverflow.com/questions/14953132/iis-7-error-a-specified-logon-session-does-not-exist-it-may-already-have-been)
+
+[https://www.scottbrady91.com/OpenSSL/Creating-RSA-Keys-using-OpenSSL](https://www.scottbrady91.com/OpenSSL/Creating-RSA-Keys-using-OpenSSL)
+
+[https://improveandrepeat.com/2020/05/how-to-change-the-https-certificate-in-iis-express/](https://improveandrepeat.com/2020/05/how-to-change-the-https-certificate-in-iis-express/)
+
+[https://stackoverflow.com/questions/59128101/iis-10-import-ssl-certificate-using-powershell-a-specified-logon-session-do](https://stackoverflow.com/questions/59128101/iis-10-import-ssl-certificate-using-powershell-a-specified-logon-session-do)
+
+[https://www.hanselman.com/blog/working-with-ssl-at-development-time-is-easier-with-iisexpress](https://www.hanselman.com/blog/working-with-ssl-at-development-time-is-easier-with-iisexpress)
+
+[https://stackoverflow.com/questions/30977264/subject-alternative-name-not-present-in-certificate](https://stackoverflow.com/questions/30977264/subject-alternative-name-not-present-in-certificate)
+
+[https://medium.com/@rubenvermeulen/running-angular-cli-over-https-with-a-trusted-certificate-4a0d5f92747a](https://medium.com/@rubenvermeulen/running-angular-cli-over-https-with-a-trusted-certificate-4a0d5f92747a)
+
+[https://stackoverflow.com/questions/43676993/how-do-i-change-my-iis-express-ssl-certificate-for-one-that-will-work-with-chrom](https://stackoverflow.com/questions/43676993/how-do-i-change-my-iis-express-ssl-certificate-for-one-that-will-work-with-chrom)
+ 
