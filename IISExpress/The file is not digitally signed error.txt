@@ -1,0 +1,4 @@
+If you get the common error message when running this script file:
+	File ... cannot be loaded. The file ... is not digitally signed. The script will not execute on the system.
+run the following command:
+	Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
