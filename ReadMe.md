@@ -11,18 +11,27 @@ What works is doing the following (assuming you are using localhost):
 	1. `openssl req -new -sha256 -x509 -nodes -days 1825 -subj "/CN=localhost" -config ..\openssl.cfg -extensions v3_req -newkey rsa:2048 -keyout localhost.key -out localhost.csr`
 	2. `cat localhost.key localhost.csr > localhost.tmp`
 	3. `openssl pkcs12 -export -inkey localhost.key -in localhost.tmp -out localhost.pfx`
-
+	
 **IMPORTANT:**
 
-Note the command line switch -config ..\openssl.cfg. Change this path to the correct location if needed. You can edit the section [alt_names] to change them or add more settings. The -extensions v3_req corresponds to the section name in the CFG file.
+**localhost can be replaced with any domain.** Obviously, IP addresses cannot be used.
+
+Note the command line switch **-config ..\openssl.cfg**. Change this path to the correct location if needed.
+
+You can edit the section [alt__names] to change them or add more settings. The -extensions v3_req corresponds to the section name in the CFG file.
 
 Now you have 3 files:
 
 localhost.key, localhost.csr, localhost.pfx.
 
+or
+
+[HOST-NAME].key, [HOST-NAME].csr, [HOST-NAME].pfx.
+
 the PFX file can be used to import the certificate into both Personal and Trusted Root. You'll need the certificate to be imported to BOTH personal and Trusted Root of the local computer (not the current user) for the IIS and IIS express assignments.
 
-The thumbprint can be obtained by viewing the certificate. Running certmgr.msc or mmc.exe > [Store] > [Open Certificate] > Details Tab > Thumbprint property.
+The thumbprint can be obtained by viewing the certificate.
+Running certmgr.msc or mmc.exe > [Store] > [Open Certificate] > Details Tab > Thumbprint property.
 
 **For IIS:**
 
@@ -33,15 +42,19 @@ Then for each site, Edit the site binding to add a new https configuration with 
 
 Run the command:
 
-    ..\iisexadmin.bat [CERT THUMPRINT]
+    ..\iisexadmin.bat CERTIFICATE-THUMPRINT [HOST-NAME]
+
 assuming you're still in the certificate folder or navigate to the correct the path.
+
+**[HOST-NAME]** is optional and if not provided, the default is localhost.
 
 or Run the command:
 
-    ..\iisexcert.bat [CERT THUMPRINT] [IIS APPID]
+    ..\iisexcert.bat CERTIFICATE-THUMPRINT [IIS APPID]
 
 or run the power shell command:
-    powershell -executionPolicy bypass .\iisexcert.ps1 -thumprint [CERT THUMPRINT] -appid [IIS APPID]
+
+    powershell -executionPolicy bypass .\iisexcert.ps1 -thumprint CERTIFICATE-THUMPRINT -appid [IIS-APPID]
 
 **For Angular:**
 
