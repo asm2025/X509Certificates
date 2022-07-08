@@ -1,7 +1,7 @@
 # X509Certificates
 Solve the ever-annoying self-signed SSL X509 certificate with IIS and IIS express.
 
-What works is doing the following (assuming you are using localhost):
+What works is the doing following (assuming you are using localhost):
 
 1. Make sure you have Git installed and added to the environment path.
 2. Make a folder to contain the newly generated files. i.e. [PATH]\localhost

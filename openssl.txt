@@ -1,3 +1,15 @@
-openssl req -new -sha256 -x509 -nodes -days 1825 -subj "/CN=localhost" -config ..\openssl.cfg -extensions v3_req -newkey rsa:2048 -keyout localhost.key -out localhost.csr
+openssl req -new -sha256 -x509 -nodes -days 1825 -subj "/CN=localhost" -config ..\..\openssl.cfg -extensions v3_req -newkey rsa:2048 -keyout localhost.key -out localhost.csr
 cat localhost.key localhost.csr > localhost.tmp
 openssl pkcs12 -export -inkey localhost.key -in localhost.tmp -out localhost.pfx
+
+convert:
+	openssl x509 -inform DER -in localhost.csr -out localhost.pem -text
+	openssl x509 -inform DER -in localhost.crt -out localhost.pem
+	openssl x509 -inform DER -in localhost.cer -out localhost.crt
+	openssl x509 -inform PEM -in localhost.cer -out localhost.crt
+	openssl x509 -outform der -in localhost.pem -out localhost.crt
+	openssl x509 -in localhost.pem -out localhost.der -outform DER
+	openssl pkcs12 -export -in localhost.pem -inkey localhost.key -out localhost.p12 -passout pass: -nokeys
+certificate hash:
+	openssl x509 -inform PEM -subject_hash_old -in localhost.pem|head -1 
+	openssl x509 -inform PEM -subject_hash_old -in localhost.cer|head -1 
